@@ -1,0 +1,517 @@
+* {
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
+}
+
+
+/**--------------------- Cabeçalho ---------------------**/
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  background: #E0E0E0;
+  width: 100vw;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  height: 80px;
+  margin: 0 auto;
+  max-width: 1500px;
+}
+
+.navbar a {
+  content-visibility: hidden;
+}
+
+.navbar .menu span {
+  color: #979797
+}
+
+.logo {
+  display: flex;
+  height: 20px;
+  margin-top: 28px;
+  align-items: center;
+}
+
+.controleFinanceiro {
+  text-align: left;
+  width: 72%;
+  margin-top: 26px;
+  font-size: 16px;
+}
+
+.menu {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  position: relative;
+  font-weight: 600;
+  align-items: center;
+  list-style: none;
+  background-color:#fff;
+  width: 320px;
+  height: 40px;
+  margin-right: 9px;
+}
+
+.menu span {
+  padding-left: 6px;
+}
+
+a { 
+  text-decoration: none;
+  padding: 0 0 0 6px;
+  color: #333333;
+}
+
+a:hover {
+  color: #C4C4C4
+}
+
+.check1 {
+  margin-left: 4px;
+}
+
+
+/**--------------------- Corpo ---------------------**/
+
+
+.conteudoMain {
+  width: 1500px;
+  margin: 0 auto;
+  overflow: auto;
+  padding: 5px 0;
+  display: flex;
+  margin-top: 30px;
+  justify-content: space-between;
+  align-items: initial;
+  width: 100%;
+}
+
+.novaTransacao {
+  width: 33%;
+}
+.extratoDeTransacao {
+  width: 66%;
+}
+
+.container {
+  margin: 0 auto;
+  background-color: rgba(99, 99, 99, 0.096);
+  width: 100%;
+  max-width: 1500px;
+  height: auto;
+  padding-bottom: 20px;
+  justify-content: space-between;
+}
+
+.input {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 40px;
+  border-radius: 4px;
+  border: solid 1px #979797;
+  box-sizing: border-box;
+  margin-top: 8px;  
+  margin-bottom: 20px;
+}
+
+.tituloFormulario {
+  display: flex;
+  justify-content: center;
+}
+
+.tituloExtrato {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: #333333;
+  border-radius: 4px;
+  border: none;
+  color: #FFFFFF;
+  height: 38px; 
+}
+
+hr {
+  width: 99%;
+}
+
+table {
+  width: 100%;
+  padding-bottom: 25px;
+}
+
+th {
+  text-align: start;
+  padding-left: 10px;
+}
+
+th, td {
+  width: 2% 96% 2%;
+  border-bottom: 1px solid #979797;
+  height: 40px;
+}
+
+table .valorTabela {
+  text-align: end;
+  padding-right: 25px;
+}
+
+table .primeiraColuna {
+  height: 60px;
+}
+
+table .mais {
+  padding-left: 10px;
+  text-align: center;
+}
+
+tr {
+  margin: 4px;
+}
+
+.totalResultado {
+  margin-bottom: 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.valor {
+  text-align: end;
+  padding-right: 26px;
+}
+
+.totalResultado .total {
+  padding-left: 60px;
+}
+
+.extratoDeTransacao .mais {
+  padding-left: 7px;
+}
+
+.extratoDeTransacao .texto {
+  padding-left: 10px;
+}
+
+.lucro span {
+  display: flex;
+  justify-content: end;
+  font-size: 13px;
+  padding-right: 26px;
+}
+
+.extrato {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 12px;
+}
+
+.formulario {
+  padding: 15px;
+  border: 1px solid #979797;
+  border-radius: 4px;
+}
+
+.formulario h2 {
+  font-size: 18px;
+  padding-bottom: 20px;
+}
+
+.extrato h2 {
+  font-size: 18px;
+  padding-bottom: 20px;
+}
+
+
+/**--------------------- Media Query ---------------------**/
+
+@media (max-width: 1112px) and (orientation : landscape) {
+
+/**--------------------- Cabeçalho ---------------------**/
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 20px 0 20px;
+    width: 100%;
+  }
+
+  .navbar h2 {
+    display: flex;
+    justify-content: left;
+    width: 100%;
+  }
+
+  .navbar a {
+    content-visibility: hidden;
+  }
+
+  .controleFinanceiro {
+    width: 60%;
+    text-align: left;
+  }
+
+/**--------------------- Corpo ---------------------**/
+
+  .conteudoMain {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-left: 20px;
+  }
+
+  .extratoDeTransacao {
+    width: 70%;
+    padding-right: 42px;
+  }
+
+  .novaTransacao {
+    width: 38%;
+  }
+
+  .extratoDeTransacao .mais {
+    padding-right: 4px;
+  }
+  
+  .extratoDeTransacao .total {
+    padding-left: 52px;
+  }
+
+  .extratoDeTransacao .texto {
+    padding-left: 10px;
+  }
+}
+
+@media (min-width: 503px) and (max-width: 815px) {
+
+/**--------------------- Cabeçalho ---------------------**/
+
+  .logo {
+    display: flex;
+    justify-content: center;
+  }
+
+  .menu {
+    background-color: #E0E0E0;
+  }
+
+  .menu .opcoes {
+    display: none;
+  }
+
+  .menu .botao:hover .opcoes { 
+    width: 33%;
+    display: flex;
+    position: fixed;
+    height: 100%;
+    background-color: #333;
+    width: 80%;
+    top: 0;
+    right: 0;
+    flex-direction: column;
+  }
+
+  .menu .botao:hover .opcoes a {
+    color: white;
+    text-align: right;
+  }
+
+  .menu a {
+    text-decoration: none;
+    color: #333;
+    content-visibility: visible;
+    text-align: end;
+    width: 81%;
+    font-size: 22px;
+  }
+
+  .controleFinanceiro {
+    text-align: center;
+    width: 100%;
+    padding-left: 76px;
+    font-size: 14px;
+  }
+
+  .logo {
+    text-align: start;
+    width: 22%;
+  }
+
+/**--------------------- Corpo ---------------------**/
+
+  .novaTransacao {
+    width: 98%;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .transacao {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .transacao .tipoDeTransacao {
+    width: 30%;
+  }
+
+  .transacao .nomeDaMercadoria {
+    width: 70%;
+  }
+  
+  .transacao .valorHead {
+    height: 40px;
+    width: 30%;
+  }
+
+  .adicionar {
+    width: 50%;
+    margin-top: 70px;
+  }
+
+  .extratoDeTransacao {
+    width: 99%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 44px;
+  }
+
+  .conteudoMain {
+    display: block;
+    align-items: center;
+    width: 94%;
+    margin-top: 19px;
+  }
+
+  .totalResultado .total {
+    padding-left: 49px;
+  }
+  
+  .extratoDeTransacao .mais {
+    padding-right: 1px;
+  }
+  
+  .extratoDeTransacao .texto {
+    padding-left: 9px;
+  }
+  
+
+}
+
+@media (max-width: 502px) {
+/**--------------------- Cabeçalho ---------------------**/
+
+  header {
+    display: flex;
+    justify-content: space-between;
+
+  }
+
+  .navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .logo {
+    padding-left: 24px;
+    text-align: start;
+    width: 60%;
+  }
+
+  .menu {
+    background-color: #E0E0E0;
+  }
+
+  .menu .opcoes {
+    display: none;
+  }
+
+  .menu .botao:hover .opcoes { 
+    width: 33%;
+    display: flex;
+    position: fixed;
+    height: 100%;
+    background-color: #333;
+    width: 80%;
+    top: 0;
+    right: 0;
+    flex-direction: column;
+  }
+
+  .menu .botao:hover .opcoes a {
+    color: white;
+    text-align: right;
+  }
+
+  .menu a {
+    text-decoration: none;
+    color: #333;
+    content-visibility: visible;
+    text-align: end;
+    width: 80%;
+    font-size: 22px;
+  }
+
+  .controleFinanceiro {
+    text-align: center;
+    width: 100%;
+    font-size: 14px;
+    padding-left: 20px;
+  }
+
+/**--------------------- Corpo ---------------------**/
+
+.conteudoMain {
+  display: block;
+  width: 95%;
+  margin-top: 4px;
+  font-size: 14px;
+}
+
+.novaTransacao {
+  width: 100%;
+}
+
+.novaTransacao h2 {
+  display: none;
+}
+
+.formulario {
+  border: none;
+}
+
+.extratoDeTransacao {
+  width: 98%;
+}
+
+.totalResultado .total {
+  padding-left: 40px;
+}
+
+.extratoDeTransacao .mais {
+  padding-right: 7px;
+}
+
+.extratoDeTransacao .texto {
+  padding-left: 10px;
+}
+
+.primeiraColuna {
+  margin-top: 0;
+}
+}
