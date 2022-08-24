@@ -113,6 +113,7 @@ header {
   box-sizing: border-box;
   margin-top: 8px;
   margin-bottom: 20px;
+  padding-left: 8px;
 }
 
 .tituloFormulario {
@@ -278,6 +279,10 @@ tr {
     width: 38%;
   }
 
+  .input {
+    padding-left: 8px;
+  }
+
   .extratoDeTransacao .mais {
     padding-right: 4px;
   }
@@ -301,10 +306,12 @@ tr {
 
   .menu {
     background-color: #e0e0e0;
+    padding-left: 120px;
+    width: 9%;
   }
 
   .menu .opcoes {
-    display: flex;
+    display: none;
     position: fixed;
     flex-direction: column;
     top: 0;
@@ -353,7 +360,7 @@ tr {
     text-align: center;
     width: 100%;
     font-size: 14px;
-    padding-left: 115px;
+    padding-left: 110px;
   }
 
   .logo {
@@ -447,10 +454,11 @@ tr {
 
   .menu {
     background-color: #e0e0e0;
+    width: 11%;
   }
 
   .menu .opcoes {
-    display: flex;
+    display: none;
     position: fixed;
     flex-direction: column;
     top: 0;
