@@ -59,13 +59,13 @@ header {
   padding-left: 6px;
 }
 
-a {
+.menu a {
   text-decoration: none;
   padding: 0 0 0 6px;
   color: #333333;
 }
 
-a:hover {
+.menu a:hover {
   color: #c4c4c4;
 }
 
@@ -304,23 +304,27 @@ tr {
   }
 
   .menu .opcoes {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    top: 0;
+    right: 0;
+    background: #333333;
+    height: 100%;
+    width: 36%;
+  }
+
+  .menu .opcoes a {
+    color: #ffffff;
+    font-size: 16px;
+  }
+
+  .menu .opcoes span {
     display: none;
   }
 
-  .menu .botao:hover .opcoes {
-    width: 33%;
-    display: flex;
-    position: fixed;
-    height: 100%;
-    background-color: #333;
-    width: 80%;
-    top: 0;
-    right: 0;
-    flex-direction: column;
-  }
-
   .menu .botao:hover .opcoes a {
-    color: white;
+    background-color: white;
     text-align: right;
   }
 
@@ -329,8 +333,20 @@ tr {
     color: #333;
     content-visibility: visible;
     text-align: end;
-    margin-left: 132px;
     font-size: 22px;
+   
+  }
+
+  .menu .check1 {
+    margin-top: 80px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    font-weight: 400;
+  }
+
+  .menu .check2 {
+    margin-right: 20px;
+    font-weight: 400;
   }
 
   .controleFinanceiro {
@@ -362,6 +378,10 @@ tr {
     width: 30%;
     margin-right: 20px;
     margin-left: 8px;
+  }
+
+  .input {
+    padding-left: 8px;
   }
 
   .transacao .nomeDaMercadoria {
@@ -427,26 +447,30 @@ tr {
 
   .menu {
     background-color: #e0e0e0;
-    width: 11%;
   }
 
   .menu .opcoes {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    top: 0;
+    right: 0;
+    background: #333333;
+    height: 100%;
+    width: 85%;
+  }
+
+  .menu .opcoes a {
+    color: #ffffff;
+    font-size: 16px;
+  }
+
+  .menu .opcoes span {
     display: none;
   }
 
-  .menu .botao:hover .opcoes {
-    display: flex;
-    position: fixed;
-    height: 100%;
-    background-color: #333;
-    width: 80%;
-    top: 0;
-    right: 0;
-    flex-direction: column;
-  }
-
   .menu .botao:hover .opcoes a {
-    color: white;
+    background-color: white;
     text-align: right;
   }
 
@@ -454,7 +478,21 @@ tr {
     text-decoration: none;
     color: #333;
     content-visibility: visible;
+    text-align: end;
     font-size: 22px;
+   
+  }
+
+  .menu .check1 {
+    margin-top: 80px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    font-weight: 400;
+  }
+
+  .menu .check2 {
+    margin-right: 20px;
+    font-weight: 400;
   }
 
   .controleFinanceiro {
@@ -484,8 +522,11 @@ tr {
 
   .formulario {
     border: none;
-    border-bottom: solid 1px #979797;
-    
+    border-bottom: solid 1px #979797;   
+  }
+
+  .input {
+    padding-left: 8px;
   }
 
   .extratoDeTransacao {
