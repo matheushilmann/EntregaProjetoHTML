@@ -495,6 +495,11 @@ tr {
 
   .totalResultado .total {
     padding-left: 40px;
+    margin-top: -34px;
+  }
+
+  .totalResultado .valor {
+    margin-top: -15px;
   }
 
   .extratoDeTransacao .mais {
