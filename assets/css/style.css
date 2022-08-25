@@ -193,6 +193,15 @@ tr {
   padding-left: 60px;
 }
 
+.totalResultado .total {
+  padding-left: 40px;
+  margin-top: -34px;
+}
+
+.totalResultado .valor {
+  margin-top: -15px;
+}
+
 .extratoDeTransacao .mais {
   padding-left: 7px;
 }
@@ -542,14 +551,7 @@ tr {
     margin-top: 24px;
   }
 
-  .totalResultado .total {
-    padding-left: 40px;
-    margin-top: -34px;
-  }
 
-  .totalResultado .valor {
-    margin-top: -15px;
-  }
 
   .extratoDeTransacao .mais {
     padding-right: 7px;
