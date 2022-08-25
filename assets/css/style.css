@@ -145,6 +145,7 @@ hr {
 table {
   width: 100%;
   padding-bottom: 25px;
+  margin-top: -10px;
 }
 
 th {
