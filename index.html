@@ -31,12 +31,12 @@
 <main class="container">
     <div class="conteudoMain">
         <div class="novaTransacao">
-            <form class="formulario">
+            <form class="formulario" id="form">
               <h2 class="tituloFormulario">Nova Transação</h2>
                 <section class="transacao">
                     <div class="tipoDeTransacao">
                         <label for="tipo">Tipo de Transação</label>
-                        <select class="input" id="tipo">
+                        <select class="input" id="tipo" >
                             <option class="option">Compra</option>
                             <option class="option">Venda</option>
                         </select>
@@ -44,47 +44,32 @@
 
                     <div class="nomeDaMercadoria">
                         <label for="nome">Nome da mercadoria</label>
-                        <input type="text" class="input" id="nome" placeholder="Digite o nome da Mercadoria"/>
+                        <input type="text" class="input" id="nome" placeholder="Digite o nome da Mercadoria" required/>
                     </div>
 
                     <div class="valorHead">
                         <label for="valor1">Valor</h3>
-                        <input type="text" class="input" id="valor1" placeholder="R$0,00"/>
+                        <input type="text" class="input" id="valor1" placeholder="R$0,00" required/>
                     </div>
                 </section>
                 <div class="adicionar">
-                  <button type="submit">Adicionar transação</button>
+                  <button type="submit" id="botao">Adicionar transação</button>
                 </div>
             </form>
         </div>
 
         <div class="extratoDeTransacao">
-          <section class="extrato">
+            <section class="extrato">
               <h2 class="tituloExtrato">Extrato de transações</h2>
 
-                <table cellspacing="0">
+                <table cellspacing="0" class="tabela">
                     <tr>
                         <th></th>
                         <th class="mercadoria">Mercadoria</th>
                         <th class="valorTabela">Valor</th>
                     </tr>
-                    <tr class="primeiraColuna">
-                        <td class="mais">+</td>
-                        <td class="texto">Lorem ipsum dolor sit amet <br>consectetur</td>
-                        <td class="valorTabela">R$ 12.999,99</td>
-                    </tr>
                     <tr>
-                        <td class="mais">-</td>
-                        <td class="texto"> Quis nostrud exercitation</td>
-                        <td class="valorTabela">R$ 99,99</td>
-                    </tr>
-                    <tr>
-                        <td class="mais">+</td>
-                        <td class="texto"> Lorem ipsum </td>
-                        <td class="valorTabela">R$ 9,99</td>      
-                    </tr>
-                    <tr>
-                      <td colspan="3" style="height: 1px"></td>
+                        <td colspan="3" style="height: 1px"></td>
                     </tr>
                 </table>   
                 <div class="totalResultado">
@@ -95,13 +80,14 @@
                     <div class="valor">
                         <b>R$12,909,99 </b>
                         <br>
-                        <span>
-                            [LUCRO]
+                        <span class="lucro">
                         </span> 
                     </div>
                 </div>
             </section>
-    </div> 
+        </div> 
+    </div>
 </main>
+<script src="./assets/js/index.js"></script>
 </body>
 </html>

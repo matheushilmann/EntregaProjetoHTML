@@ -1,0 +1,18 @@
+<tr class="primeiraColuna">
+  <td class="mais">+</td>
+  <td class="texto">Lorem ipsum dolor sit amet <br>consectetur</td>
+  <td class="valorTabela">R$ 12.999,99</td>
+</tr>
+<tr>
+  <td class="mais">-</td>
+  <td class="texto"> Quis nostrud exercitation</td>
+  <td class="valorTabela">R$ 99,99</td>
+</tr>
+<tr>
+  <td class="mais">+</td>
+  <td class="texto"> Lorem ipsum </td>
+  <td class="valorTabela">R$ 9,99</td>      
+</tr>
+<tr>
+<td colspan="3" style="height: 1px"></td>
+</tr>

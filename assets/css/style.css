@@ -72,7 +72,6 @@ header {
 .check1 {
   margin-left: 4px;
 }
-
 /**--------------------- Corpo ---------------------**/
 
 .conteudoMain {
@@ -142,7 +141,7 @@ hr {
   width: 99%;
 }
 
-table {
+.tabela {
   width: 100%;
   padding-bottom: 25px;
   margin-top: -10px;
@@ -151,6 +150,11 @@ table {
 th {
   text-align: start;
   padding-left: 10px;
+}
+
+.itens {
+  display: flex;
+  flex-direction: column;
 }
 
 th,
