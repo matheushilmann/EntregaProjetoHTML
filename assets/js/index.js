@@ -14,6 +14,7 @@ function salvarDados(dados) {
 }
 
 // TRAZENDO A LOCALSTORAGE
+
 function buscarDados() {
   const dados = localStorage.getItem('produtos');
 
@@ -38,9 +39,16 @@ function adicionarProduto() {
   salvarDados(dados)
 }
 
+// ADICIONANDO MASCARA NO CAMPO VALOR
+
+function mascaraValor(event) {
+  
+}
+
 // ADICIONANDO FUNÇÃO AO BOTÃO PARA RESET E SALVAR NO LOCAL STORAGE
 
-form.addEventListener('submit', () => {
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
   adicionarProduto();
   form.reset(); 
   renderizarDados();
@@ -66,6 +74,7 @@ function renderizarDados() {
     `
   });
 
+  
   const resultado = document.querySelector('.valor b');
   resultado.innerHTML = `${calculo()}`
   const lucro = document.querySelector('.lucro');
@@ -75,12 +84,13 @@ function renderizarDados() {
 // FUNÇÃO PARA SOMAR OU DIMINUIR VALORES DE COMPRA E VENDA
 
 function calculo() {
-  var total = 0
-  const dados = buscarDados()
+  var total = 0;
+  const dados = buscarDados();
   dados.forEach(item => {
     item.tipo === 'Compra' ? total -= item.preco : total += item.preco
   });
-  return total
+  return total;
+
 }
 
 // FUNÇÃO PARA TRAZER O RESULTADO E DECLARAR PREJUÍZO OU LUCRO
@@ -93,5 +103,4 @@ function lucroOuPrejuizo(valor) {
   } else {
     return ''
   }
-
 }
