@@ -39,12 +39,6 @@ function adicionarProduto() {
   salvarDados(dados)
 }
 
-// ADICIONANDO MASCARA NO CAMPO VALOR
-
-function mascaraValor(event) {
-  
-}
-
 // ADICIONANDO FUNÇÃO AO BOTÃO PARA RESET E SALVAR NO LOCAL STORAGE
 
 form.addEventListener('submit', (event) => {
@@ -52,6 +46,21 @@ form.addEventListener('submit', (event) => {
   adicionarProduto();
   form.reset(); 
   renderizarDados();
+
+
+// ADICIONANDO MASCARA NO CAMPO VALOR E MERCADORIA
+
+  const valor = document.querySelector('#valor1')
+
+  if(valor.value == '') {
+    valor.classList.add("errorInput")
+  } else if(!isNaN(valor.value) == true) {
+    valor.classList.remove("errorInput")
+  }
+
+  if(mercadoria.value == '') {
+    valor.classList.add("errorInput")
+  }
 });
 
 // DANDO FUNÇÃO A OPÇÃO LIMPAR DADOS
@@ -70,7 +79,7 @@ function renderizarDados() {
     tabela.innerHTML += `
       <td class="mais">${item.tipo === 'Compra' ? '-' : '+'}</td>
       <td class="texto">${item.produto}</td>
-      <td class="valorTabela">${item.preco}</td>
+      <td class="valorTabela">${item.preco.toLocaleString('pt-BR', {style: 'currency', currency: "BRL"})}</td>
     `
   });
 
@@ -89,7 +98,7 @@ function calculo() {
   dados.forEach(item => {
     item.tipo === 'Compra' ? total -= item.preco : total += item.preco
   });
-  return total;
+  return `${total.toLocaleString('pt-BR', {style: 'currency', currency: "BRL"})}`
 
 }
 

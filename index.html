@@ -44,12 +44,12 @@
 
                     <div class="nomeDaMercadoria">
                         <label for="nome">Nome da mercadoria</label>
-                        <input type="text" class="input" id="nome" placeholder="Digite o nome da Mercadoria" required/>
+                        <input type="text" class="input errorInput" id="nome" placeholder="Digite o nome da Mercadoria" required/>
                     </div>
 
                     <div class="valorHead">
                         <label for="valor1">Valor</h3>
-                        <input type="number" class="input" id="valor1" onkeypress="mascaraValor(event)" placeholder="R$0,00" required />
+                        <input onKeyUp="(e) => { console.log(e) }" type="text" class="input errorInput" id="valor1" placeholder="R$0,00" required />
                     </div>
                 </section>
                 <div class="adicionar">

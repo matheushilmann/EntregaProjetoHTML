@@ -195,16 +195,14 @@ tr {
 }
 
 .totalResultado .total {
-  padding-left: 60px;
-}
-
-.totalResultado .total {
-  padding-left: 40px;
-  margin-top: -34px;
+  /* padding-left: 64px; */
+  margin-top: -20px; 
+  margin-left: 68px;
 }
 
 .totalResultado .valor {
   margin-top: -15px;
+  
 }
 
 .extratoDeTransacao .mais {
@@ -242,6 +240,10 @@ tr {
 .extrato h2 {
   font-size: 18px;
   padding-bottom: 20px;
+}
+
+.errorInput {
+  border: 2px solid rgb(251, 102, 102) !important;
 }
 
 /**--------------------- Media Query ---------------------**/
@@ -451,6 +453,10 @@ tr {
   .extratoDeTransacao .texto {
     padding-left: 9px;
   }
+
+  .errorInput {
+    border: 2px solid rgb(244, 54, 54) !important;
+  }
 }
 
 @media (max-width: 674px) {
@@ -569,4 +575,8 @@ tr {
   .primeiraColuna {
     margin-top: 0;
   }
+
+  .errorInput {
+  border: 2px solid rgb(244, 54, 54) !important;
+}
 }
