@@ -6,6 +6,43 @@ const valor = document.querySelector('#valor1');
 const limpar = document.querySelector('.check2');
 const tabela = document.querySelector('.tabela');
 const form = document.querySelector('#form');
+const input = document.querySelectorAll('.errorInput');
+const spans = document.querySelectorAll('.span-required');
+const valorRegex = /([0-9]+[\.]*[0-9]*[\,.]*[0-9]*)/;
+
+
+// VALIDANDO CAMPOS DO FORMULÁRIO
+
+function setError(index) {
+  input[index].style.border = '2px solid #e63636';
+  spans[index].style.display = 'block';
+  spans[index].style.color = '#e63636'
+}
+
+function removeError(index) {
+  input[index].style.border = '';
+  spans[index].style.display = '';
+}
+
+function validacaoFormNome() {
+  if(input[0].value.length < 3) {
+    setError(0);
+  } else {
+    removeError(0);
+  }
+}
+
+function validacaoFormValor() {
+  if(!valorRegex.test(input[1].value || input[1].value.length > 0)){
+    setError(1);
+  } else {
+    removeError(1);
+  }
+}
+
+// APLICAÇÃO DE MASCARA
+
+
 
 // PREPARANDO O LOCALSTORAGE
 
@@ -43,24 +80,11 @@ function adicionarProduto() {
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
+  validacaoFormNome();
+  validacaoFormValor();
   adicionarProduto();
   form.reset(); 
   renderizarDados();
-
-
-// ADICIONANDO MASCARA NO CAMPO VALOR E MERCADORIA
-
-  // const valor = document.querySelector('#valor1')
-
-  // if(valor.value == '') {
-  //   valor.classList.add("errorInput")
-  // } else if(!isNaN(valor.value) == true) {
-  //   valor.classList.remove("errorInput")
-  // }
-
-  // if(mercadoria.value == '') {
-  //   valor.classList.add("errorInput")
-  // }
 });
 
 // DANDO FUNÇÃO A OPÇÃO LIMPAR DADOS
@@ -70,6 +94,7 @@ limpar.addEventListener('click', limparDados)
 function limparDados() {
   localStorage.clear()
 }
+
 
 // FUNÇÃO DO CONSOLE PARA TRAZER DADOS A TELA DO LOCALSTORAGE
 

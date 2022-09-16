@@ -44,12 +44,14 @@
 
                     <div class="nomeDaMercadoria">
                         <label for="nome">Nome da mercadoria</label>
-                        <input type="text" class="input errorInput" id="nome" placeholder="Digite o nome da Mercadoria" required/>
+                        <input type="text" class="input errorInput" id="nome" placeholder="Digite o nome da Mercadoria" oninput="validacaoFormNome()"/>
+                        <span class="span-required">Nome deve ter no mínimo 3 caracteres</span>
                     </div>
 
                     <div class="valorHead">
                         <label for="valor1">Valor</h3>
-                        <input onKeyUp="(e) => { console.log(e) }" type="text" class="input errorInput" id="valor1" placeholder="R$0,00" required />
+                        <input type="text" class="input errorInput" id="valor1" placeholder="R$0,00" oninput="validacaoFormValor()"/>
+                        <span class="span-required">Valor Inválido ou não inserido</span>
                     </div>
                 </section>
                 <div class="adicionar">

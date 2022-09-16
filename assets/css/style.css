@@ -242,8 +242,15 @@ tr {
   padding-bottom: 20px;
 }
 
-.errorInput {
+/* .errorInput {
   border: 2px solid rgb(251, 102, 102) !important;
+} */
+
+.span-required {
+  font-size: 13px;
+  margin: -16px 0 0 1px;
+  padding-bottom: 10px;
+  display: none;
 }
 
 /**--------------------- Media Query ---------------------**/
@@ -309,6 +316,10 @@ tr {
 
   .extratoDeTransacao .texto {
     padding-left: 10px;
+  }
+
+  .span-required {
+    display: none;
   }
 }
 
@@ -454,8 +465,12 @@ tr {
     padding-left: 9px;
   }
 
-  .errorInput {
+  /* .errorInput {
     border: 2px solid rgb(244, 54, 54) !important;
+  } */
+
+  .span-required {
+    display: none;
   }
 }
 
@@ -576,7 +591,11 @@ tr {
     margin-top: 0;
   }
 
-  .errorInput {
+  /* .errorInput {
   border: 2px solid rgb(244, 54, 54) !important;
-}
+} */
+
+  .span-required {
+    display: none;
+  }
 }
