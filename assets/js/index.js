@@ -50,18 +50,18 @@ form.addEventListener('submit', (event) => {
 
 // ADICIONANDO MASCARA NO CAMPO VALOR E MERCADORIA
 
-  const valor = document.querySelector('#valor1')
+//   const valor = document.querySelector('#valor1')
 
-  if(valor.value == '') {
-    valor.classList.add("errorInput")
-  } else if(!isNaN(valor.value) == true) {
-    valor.classList.remove("errorInput")
-  }
+//   if(valor.value == '') {
+//     valor.classList.add("errorInput")
+//   } else if(!isNaN(valor.value) == true) {
+//     valor.classList.remove("errorInput")
+//   }
 
-  if(mercadoria.value == '') {
-    valor.classList.add("errorInput")
-  }
-});
+//   if(mercadoria.value == '') {
+//     valor.classList.add("errorInput")
+//   }
+// });
 
 // DANDO FUNÇÃO A OPÇÃO LIMPAR DADOS
 
@@ -75,32 +75,38 @@ function limparDados() {
 
 function renderizarDados() {
   const dados = buscarDados();
+  tabela.innerHTML = `
+  <tr>
+      <th></th>
+      <th class="mercadoria">Mercadoria</th>
+      <th class="valorTabela">Valor</th>
+  </tr>
+  <tr>
+      <td colspan="3" style="height: 1px"></td>
+  </tr>   
+  `
+
+  var total = 0;
+
+
   dados.forEach(item => {
-    tabela.innerHTML += `
-      <td class="mais">${item.tipo === 'Compra' ? '-' : '+'}</td>
-      <td class="texto">${item.produto}</td>
-      <td class="valorTabela">${item.preco.toLocaleString('pt-BR', {style: 'currency', currency: "BRL"})}</td>
+    item.tipo === 'Compra' ? total -= item.preco : total += item.preco;
+    tabela.innerHTML += `<tr>  
+        <td class="mais">${item.tipo === 'Compra' ? '-' : '+'}</td>
+        <td class="texto">${item.produto}</td>
+        <td class="valorTabela">${item.preco.toLocaleString('pt-BR', {style: 'currency', currency: "BRL"})}
+        </td>
+      </tr>  
     `
   });
 
   
   const resultado = document.querySelector('.valor b');
-  resultado.innerHTML = `${calculo()}`
+  resultado.innerHTML = `${total.toLocaleString('pt-BR', {style: 'currency', currency: "BRL"})}`
   const lucro = document.querySelector('.lucro');
-  lucro.innerHTML = `${lucroOuPrejuizo(calculo())}`
+  lucro.innerHTML = `${lucroOuPrejuizo(total)}`
 }
 
-// FUNÇÃO PARA SOMAR OU DIMINUIR VALORES DE COMPRA E VENDA
-
-function calculo() {
-  var total = 0;
-  const dados = buscarDados();
-  dados.forEach(item => {
-    item.tipo === 'Compra' ? total -= item.preco : total += item.preco
-  });
-  return `${total.toLocaleString('pt-BR', {style: 'currency', currency: "BRL"})}`
-
-}
 
 // FUNÇÃO PARA TRAZER O RESULTADO E DECLARAR PREJUÍZO OU LUCRO
 
