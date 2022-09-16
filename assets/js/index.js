@@ -50,18 +50,18 @@ form.addEventListener('submit', (event) => {
 
 // ADICIONANDO MASCARA NO CAMPO VALOR E MERCADORIA
 
-//   const valor = document.querySelector('#valor1')
+  // const valor = document.querySelector('#valor1')
 
-//   if(valor.value == '') {
-//     valor.classList.add("errorInput")
-//   } else if(!isNaN(valor.value) == true) {
-//     valor.classList.remove("errorInput")
-//   }
+  // if(valor.value == '') {
+  //   valor.classList.add("errorInput")
+  // } else if(!isNaN(valor.value) == true) {
+  //   valor.classList.remove("errorInput")
+  // }
 
-//   if(mercadoria.value == '') {
-//     valor.classList.add("errorInput")
-//   }
-// });
+  // if(mercadoria.value == '') {
+  //   valor.classList.add("errorInput")
+  // }
+});
 
 // DANDO FUNÇÃO A OPÇÃO LIMPAR DADOS
 
