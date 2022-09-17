@@ -16,7 +16,8 @@ const valorRegex = /([0-9]+[\.]*[0-9]*[\,.]*[0-9]*)/;
 function setError(index) {
   input[index].style.border = '2px solid #e63636';
   spans[index].style.display = 'block';
-  spans[index].style.color = '#e63636'
+  spans[index].style.color = '#e63636';
+  return false;
 }
 
 function removeError(index) {
@@ -24,20 +25,20 @@ function removeError(index) {
   spans[index].style.display = '';
 }
 
-function validacaoFormNome() {
-  if(input[0].value.length < 3) {
+function validacaoFormNome(event) { // CAMPO DE ERRO PARA NOME INVÁLIDO
+  if(input[0].value.length < 3 || input[0].value === "") {
     setError(0);
   } else {
     removeError(0);
-  }
+  } 
 }
-
-function validacaoFormValor() {
+function validacaoFormValor(event) { // CAMPO DE ERRO PARA VALOR INVÁLIDO
   if(!valorRegex.test(input[1].value || input[1].value.length > 0)){
     setError(1);
+    console.log('letra');
   } else {
     removeError(1);
-  }
+  } 
 }
 
 // APLICAÇÃO DE MASCARA
@@ -46,15 +47,14 @@ function validacaoFormValor() {
 
 // PREPARANDO O LOCALSTORAGE
 
-function salvarDados(dados) {
+function salvarDados(dados) { // CRIANDO ITEM NO LOCAL STORAGE
   localStorage.setItem('produtos', JSON.stringify(dados))
 }
 
 // TRAZENDO A LOCALSTORAGE
 
-function buscarDados() {
+function buscarDados() { 
   const dados = localStorage.getItem('produtos');
-
   if (dados !== null) {
     return JSON.parse(dados)
   } else {
@@ -62,7 +62,7 @@ function buscarDados() {
   }
 }
 
-// ADICIONANDO ITEM AO LOCAL STORAGE
+// ADICIONANDO ITEM AO LOCAL STORAGE E A TELA
 
 function adicionarProduto() {
   const dados = buscarDados();
@@ -71,32 +71,33 @@ function adicionarProduto() {
     produto: mercadoria.value,
     preco: Number(valor.value)
   }
-
-  dados.push(item)
-  salvarDados(dados)
+  if (item.preco && item.tipo && item.produto){ // SE AS CONDIÇÕES NAO FOREM VERDADEIRAS, INVALIDA O FORMULÁRIO
+    dados.push(item);
+    salvarDados(dados);
+  }
 }
 
 // ADICIONANDO FUNÇÃO AO BOTÃO PARA RESET E SALVAR NO LOCAL STORAGE
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-  validacaoFormNome();
-  validacaoFormValor();
-  adicionarProduto();
-  form.reset(); 
-  renderizarDados();
+  validacaoFormNome(event); // CHECA SE O NOME DA MERCADORIA É VALIDO
+  validacaoFormValor(event); // CHECA SE O VALOR É VÁLIDO
+  adicionarProduto(); // ADICIONA O PRODUTO NA LOCAL STORAGE
+  form.reset(); // RESETA OS DADOS DIGITADOS
+  renderizarDados(); // TRAZ OS DADOS DA LOCAL STORAGE A TELA
 });
 
 // DANDO FUNÇÃO A OPÇÃO LIMPAR DADOS
 
 limpar.addEventListener('click', limparDados)
 
-function limparDados() {
-  localStorage.clear()
+function limparDados() { // LIMPA O LOCALSTORAGE SALVO E RESETA A PÁGINA
+  localStorage.clear() 
 }
 
 
-// FUNÇÃO DO CONSOLE PARA TRAZER DADOS A TELA DO LOCALSTORAGE
+// FUNÇÃO PARA TRAZER DADOS DO LOCAL STORAGE DIRETO PARA A TELA
 
 function renderizarDados() {
   const dados = buscarDados();
@@ -127,7 +128,7 @@ function renderizarDados() {
 
   
   const resultado = document.querySelector('.valor b');
-  resultado.innerHTML = `${total.toLocaleString('pt-BR', {style: 'currency', currency: "BRL"})}`
+  resultado.innerHTML = `${total.toLocaleString('pt-BR', {style: 'currency', currency: "BRL"})}` // TRANSFORMA O VALOR JÁ PARA VALOR MONETÁRIO
   const lucro = document.querySelector('.lucro');
   lucro.innerHTML = `${lucroOuPrejuizo(total)}`
 }
