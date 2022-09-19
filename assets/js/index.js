@@ -17,7 +17,6 @@ function setError(index) {
   input[index].style.border = '2px solid #e63636';
   spans[index].style.display = 'block';
   spans[index].style.color = '#e63636';
-  return false;
 }
 
 function removeError(index) {
@@ -35,7 +34,6 @@ function validacaoFormNome(event) { // CAMPO DE ERRO PARA NOME INVÁLIDO
 function validacaoFormValor(event) { // CAMPO DE ERRO PARA VALOR INVÁLIDO
   if(!valorRegex.test(input[1].value || input[1].value.length > 0)){
     setError(1);
-    console.log('letra');
   } else {
     removeError(1);
   } 
@@ -71,7 +69,13 @@ function adicionarProduto() {
     produto: mercadoria.value,
     preco: Number(valor.value)
   }
-  if (item.preco && item.tipo && item.produto){ // SE AS CONDIÇÕES NAO FOREM VERDADEIRAS, INVALIDA O FORMULÁRIO
+  if (item.tipo && item.produto && item.preco){ // SE AS CONDIÇÕES NAO FOREM VERDADEIRAS, INVALIDA O FORMULÁRIO
+    if (item.produto.value = "" || item.produto.length < 3) {
+       return false
+    }
+    if (item.preco.value <= 0) {
+      return false
+    }
     dados.push(item);
     salvarDados(dados);
   }
@@ -81,8 +85,8 @@ function adicionarProduto() {
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-  validacaoFormNome(event); // CHECA SE O NOME DA MERCADORIA É VALIDO
-  validacaoFormValor(event); // CHECA SE O VALOR É VÁLIDO
+  validacaoFormNome(); // CHECA SE O NOME DA MERCADORIA É VALIDO
+  validacaoFormValor(); // CHECA SE O VALOR É VÁLIDO
   adicionarProduto(); // ADICIONA O PRODUTO NA LOCAL STORAGE
   form.reset(); // RESETA OS DADOS DIGITADOS
   renderizarDados(); // TRAZ OS DADOS DA LOCAL STORAGE A TELA
