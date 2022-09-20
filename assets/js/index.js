@@ -23,14 +23,12 @@ function removeError(index) {
   spans[index].style.display = '';
 }
 
-function validacaoFormNome(event) { // CAMPO DE ERRO PARA NOME INVÁLIDO
+function validacaoForm(event) { // CAMPO DE ERRO PARA NOME INVÁLIDO
   if(input[0].value.length < 3 || input[0].value === "") {
     setError(0);
   } else {
     removeError(0);
-  } 
-}
-function validacaoFormValor(event) { // CAMPO DE ERRO PARA VALOR INVÁLIDO
+  }
   if(input[1].value == ''){
     setError(1);
   } else {
@@ -67,7 +65,7 @@ function salvarDados(dados) { // CRIANDO ITEM NO LOCAL STORAGE
 // TRAZENDO A LOCALSTORAGE
 
 function buscarDados() { 
-  const dados = localStorage.getItem('produtos');
+  var dados = localStorage.getItem('produtos');
   if (dados !== null) {
     return JSON.parse(dados)
   } else {
@@ -78,22 +76,22 @@ function buscarDados() {
 // ADICIONANDO ITEM AO LOCAL STORAGE E A TELA
 
 function adicionarProduto() {
-  const dados = buscarDados();
-  const item = {
+  var dados = buscarDados();
+  var item = {
     tipo: tipoDeTransacao.value,
     produto: mercadoria.value,
     preco: parseFloat(valor.value.replaceAll('.', '').replace(',', '.').replace('R$', ''))
   }
-    if (item.tipo && item.produto && item.preco){ // SE AS CONDIÇÕES NAO FOREM VERDADEIRAS, INVALIDA O FORMULÁRIO
+  if (item.tipo && item.produto && item.preco){ // SE AS CONDIÇÕES NAO FOREM VERDADEIRAS, INVALIDA O FORMULÁRIO
     if (item.produto.value = "" || item.produto.length < 3) {
-       return false
+      return false
     }
     if (item.preco.value <= 0) {
       return false
     }
-    dados.push(item);
-    salvarDados(dados);
-    form.reset();
+  dados.push(item);
+  salvarDados(dados);
+  form.reset();
   }
 }
 
@@ -123,7 +121,7 @@ function limparDados() { // LIMPA O LOCALSTORAGE SALVO E RESETA A PÁGINA
 // FUNÇÃO PARA TRAZER DADOS DO LOCAL STORAGE DIRETO PARA A TELA
 
 function renderizarDados() {
-  const dados = buscarDados();
+  var dados = buscarDados();
   tabela.innerHTML = `
   <tr>
       <th></th>
