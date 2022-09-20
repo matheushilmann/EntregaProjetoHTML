@@ -8,7 +8,6 @@ const tabela = document.querySelector('.tabela');
 const form = document.querySelector('#form');
 const input = document.querySelectorAll('.errorInput');
 const spans = document.querySelectorAll('.span-required');
-const valorRegex = /([0-9]+[\.]*[0-9]*[\,.]*[0-9]*)/;
 
 
 // VALIDANDO CAMPOS DO FORMULÁRIO
@@ -32,7 +31,7 @@ function validacaoFormNome(event) { // CAMPO DE ERRO PARA NOME INVÁLIDO
   } 
 }
 function validacaoFormValor(event) { // CAMPO DE ERRO PARA VALOR INVÁLIDO
-  if(!valorRegex.test(input[1].value || input[1].value.length > 0)){
+  if(input[1].value == ''){
     setError(1);
   } else {
     removeError(1);
@@ -41,7 +40,23 @@ function validacaoFormValor(event) { // CAMPO DE ERRO PARA VALOR INVÁLIDO
 
 // APLICAÇÃO DE MASCARA
 
+function mascaraMoeda(event) {
+  const apenasDigitos = event.target.value
+    .split("")
+    .filter(s => /\d/.test(s))
+    .join("")
+    .padStart(3, "0")
+  const digitoFloat = apenasDigitos.slice(0, -2) + "." + apenasDigitos.slice(-2);
+  event.target.value = mascaraCurrency(digitoFloat);
+}
 
+function mascaraCurrency(valor, locale = 'pt-BR', currency = 'BRL') {
+  return new Intl.NumberFormat(locale, {
+    style: 'currency',
+    currency
+  }).format(valor)
+}
+  
 
 // PREPARANDO O LOCALSTORAGE
 
@@ -67,9 +82,10 @@ function adicionarProduto() {
   const item = {
     tipo: tipoDeTransacao.value,
     produto: mercadoria.value,
-    preco: Number(valor.value)
+    preco: parseFloat(valor.value.replaceAll('.', '').replace(',', '.').replace('R$', ''))
   }
-  if (item.tipo && item.produto && item.preco){ // SE AS CONDIÇÕES NAO FOREM VERDADEIRAS, INVALIDA O FORMULÁRIO
+  console.log(item)
+    if (item.tipo && item.produto && item.preco){ // SE AS CONDIÇÕES NAO FOREM VERDADEIRAS, INVALIDA O FORMULÁRIO
     if (item.produto.value = "" || item.produto.length < 3) {
        return false
     }
@@ -85,8 +101,6 @@ function adicionarProduto() {
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-  validacaoFormNome(); // CHECA SE O NOME DA MERCADORIA É VALIDO
-  validacaoFormValor(); // CHECA SE O VALOR É VÁLIDO
   adicionarProduto(); // ADICIONA O PRODUTO NA LOCAL STORAGE
   form.reset(); // RESETA OS DADOS DIGITADOS
   renderizarDados(); // TRAZ OS DADOS DA LOCAL STORAGE A TELA

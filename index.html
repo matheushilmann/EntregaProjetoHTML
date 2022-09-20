@@ -50,7 +50,7 @@
 
                     <div class="valorHead">
                         <label for="valor1">Valor</h3>
-                        <input type="text" class="input errorInput" id="valor1" placeholder="R$0,00" onkeypress="validacaoFormValor(event)"/>
+                        <input type="text" class="input errorInput" id="valor1" onkeyup="mascaraMoeda(event);"placeholder="R$0,00" onkeypress="validacaoFormValor(event)"/>
                         <span class="span-required">Valor Inválido ou não inserido</span>
                     </div>
                 </section>
