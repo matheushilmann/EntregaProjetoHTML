@@ -84,7 +84,6 @@ function adicionarProduto() {
     produto: mercadoria.value,
     preco: parseFloat(valor.value.replaceAll('.', '').replace(',', '.').replace('R$', ''))
   }
-  console.log(item)
     if (item.tipo && item.produto && item.preco){ // SE AS CONDIÇÕES NAO FOREM VERDADEIRAS, INVALIDA O FORMULÁRIO
     if (item.produto.value = "" || item.produto.length < 3) {
        return false
@@ -94,6 +93,7 @@ function adicionarProduto() {
     }
     dados.push(item);
     salvarDados(dados);
+    form.reset();
   }
 }
 
@@ -102,7 +102,6 @@ function adicionarProduto() {
 form.addEventListener('submit', (event) => {
   event.preventDefault();
   adicionarProduto(); // ADICIONA O PRODUTO NA LOCAL STORAGE
-  form.reset(); // RESETA OS DADOS DIGITADOS
   renderizarDados(); // TRAZ OS DADOS DA LOCAL STORAGE A TELA
 });
 
@@ -111,7 +110,13 @@ form.addEventListener('submit', (event) => {
 limpar.addEventListener('click', limparDados)
 
 function limparDados() { // LIMPA O LOCALSTORAGE SALVO E RESETA A PÁGINA
-  localStorage.clear() 
+  var apagar = window.confirm(`Esses dados serão permanentemente apagados. Deseja Continuar?`);
+  if(apagar == true){
+    localStorage.clear() 
+    location.reload()
+  } else {
+    return false;
+  }
 }
 
 
