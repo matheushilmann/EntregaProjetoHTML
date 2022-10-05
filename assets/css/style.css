@@ -59,6 +59,10 @@ header {
   padding-left: 6px;
 }
 
+.menu .close {
+  display: none;
+}
+
 .menu a {
   text-decoration: none;
   padding: 0 0 0 6px;
@@ -180,6 +184,10 @@ table .mais {
 
 tr {
   margin: 4px;
+}
+
+tr td {
+  padding-left: 64px;
 }
 
 .totalResultado {
@@ -344,6 +352,13 @@ tr {
     width: 36%;
   }
 
+  .menu .opcoes .close {
+    display: flex;
+    margin-top: 15px;
+    margin-left: 10px;
+    width: 30px;
+  }
+
   .menu .opcoes a {
     color: #ffffff;
     font-size: 16px;
@@ -353,8 +368,9 @@ tr {
     display: none;
   }
 
-  .menu .botao:hover .opcoes a {
-    background-color: white;
+  .menu .opcoes a:hover {
+    box-shadow: inset 0 0 10px 10px #C4C4C4;
+    color: #333333;
     text-align: right;
   }
 
@@ -368,8 +384,8 @@ tr {
   }
 
   .menu .check1 {
-    margin-top: 80px;
-    margin-bottom: 20px;
+    margin-top: 40px;
+    margin-bottom: 30px;
     margin-right: 20px;
     font-weight: 400;
   }

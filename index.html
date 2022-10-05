@@ -18,13 +18,16 @@
                 <h2>Controle financeiro</h2>
             </div>
             
-            <div class="menu">
-                <a href="javascript:void(0);" class="open">☰</a>
-            <div class="opcoes">
-                <a href="javascript:void(0);" class="check1">Cadastro de Transações</a>
-                <span>|</span>
-                <a href="javascript:void(0);" class="check2">Limpar Dados</a>  
-            </div>
+            <div class="menu" id="abrir">
+                <a href="javascript:void(0);" class="open" id="open">☰</a>
+                <div class="opcoes" id="opcoes">
+                    <div id="#close">
+                        <a href="javascript:void(0);" class="close">X</a>
+                    </div>
+                    <a href="javascript:void(0);" class="check1">Cadastro de Transações</a>
+                    <span>|</span>
+                    <a href="javascript:void(0);" class="check2">Limpar Dados</a>  
+                </div>
         </nav>
     </header>
 
@@ -36,7 +39,7 @@
                 <section class="transacao">
                     <div class="tipoDeTransacao">
                         <label for="tipo">Tipo de Transação</label>
-                        <select class="input" id="tipo" >
+                        <select class="input" id="tipo">
                             <option class="option">Compra</option>
                             <option class="option">Venda</option>
                         </select>
@@ -50,7 +53,7 @@
 
                     <div class="valorHead">
                         <label for="valor1">Valor</h3>
-                        <input type="text" class="input errorInput" id="valor1" onkeyup="mascaraMoeda(event);"placeholder="R$0,00" onkeypress="validacaoForm(event)"/>
+                        <input type="text" class="input errorInput" id="valor1" onkeyup="mascaraMoeda(event);"placeholder="R$0,00" onkeyup="validacaoForm(event)"/>
                         <span class="span-required">Valor Inválido ou não inserido</span>
                     </div>
                 </section>
@@ -71,7 +74,7 @@
                         <th class="valorTabela">Valor</th>
                     </tr>
                     <tr>
-                        <td colspan="3" style="height: 1px"></td>
+                        <td colspan="3" style="height: 1px">Nenhum Valor Cadastrado</td>
                     </tr>
                 </table>   
                 <div class="totalResultado">

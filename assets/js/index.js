@@ -8,7 +8,17 @@ const tabela = document.querySelector('.tabela');
 const form = document.querySelector('#form');
 const input = document.querySelectorAll('.errorInput');
 const spans = document.querySelectorAll('.span-required');
+const menu = document.querySelector('#menu')
+const opcoes = document.querySelector('#opcoes');
+const abrir = document.querySelector('#open');
+const fechar = document.querySelector('#close');
 
+
+// MOSTRAR MENU LATERAL MOBILE
+
+abrir.addEventListener('click', () => {
+  opcoes.style.display = 'flex';
+});
 
 // VALIDANDO CAMPOS DO FORMULÁRIO
 
@@ -29,11 +39,7 @@ function validacaoForm(event) { // CAMPO DE ERRO PARA NOME INVÁLIDO
   } else {
     removeError(0);
   }
-  if(input[1].value == ''){
-    setError(1);
-  } else {
-    removeError(1);
-  } 
+  
 }
 
 // APLICAÇÃO DE MASCARA
@@ -52,7 +58,7 @@ function mascaraCurrency(valor, locale = 'pt-BR', currency = 'BRL') {
   return new Intl.NumberFormat(locale, {
     style: 'currency',
     currency
-  }).format(valor)
+  }).format(valor);
 }
   
 
@@ -84,10 +90,12 @@ function adicionarProduto() {
   }
   if (item.tipo && item.produto && item.preco){ // SE AS CONDIÇÕES NAO FOREM VERDADEIRAS, INVALIDA O FORMULÁRIO
     if (item.produto.value = "" || item.produto.length < 3) {
-      return false
+      validacaoForm();
+      return false;
     }
-    if (item.preco.value <= 0) {
-      return false
+    if (item.preco.value == 0) {
+      window.alert('digite um valor válido')
+      return false;
     }
   dados.push(item);
   salvarDados(dados);
@@ -110,8 +118,8 @@ limpar.addEventListener('click', limparDados)
 function limparDados() { // LIMPA O LOCALSTORAGE SALVO E RESETA A PÁGINA
   var apagar = window.confirm(`Esses dados serão permanentemente apagados. Deseja Continuar?`);
   if(apagar == true){
-    localStorage.clear() 
-    location.reload()
+    localStorage.clear();
+    renderizarDados();
   } else {
     return false;
   }
@@ -129,12 +137,11 @@ function renderizarDados() {
       <th class="valorTabela">Valor</th>
   </tr>
   <tr>
-      <td colspan="3" style="height: 1px"></td>
+  <td colspan="3" style="height: 1px"></td>
   </tr>   
   `
 
   var total = 0;
-
 
   dados.forEach(item => {
     item.tipo === 'Compra' ? total -= item.preco : total += item.preco;
@@ -146,7 +153,6 @@ function renderizarDados() {
       </tr>  
     `
   });
-
   
   const resultado = document.querySelector('.valor b');
   resultado.innerHTML = `${total.toLocaleString('pt-BR', {style: 'currency', currency: "BRL"})}` // TRANSFORMA O VALOR JÁ PARA VALOR MONETÁRIO
