@@ -1,7 +1,7 @@
 <h1 align="center"> Projeto Individual - Newtab </h1>
 
 <p align="center">
-Projeto do curso intensivo em desenvolvimento web, pela Newtab Academy, validos pelos módulos 1 e 2.
+Projeto do curso intensivo em desenvolvimento web, pela Newtab Academy, válidos pelos módulos 1 e 2.
 </p>
 
 <p align="center">
